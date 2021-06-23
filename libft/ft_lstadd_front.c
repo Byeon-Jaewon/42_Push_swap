@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 15:33:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/06/17 16:14:16 by jbyeon           ###   ########.fr       */
+/*   Created: 2021/06/23 14:50:07 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/06/23 15:08:46 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstpush(t_list *stack, int n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*new;
-	new = ft_lstnew(n);
-	while (stack->next != NULL)
-		stack = stack->next;
-	if (stack->next == NULL)
-		stack->next = new;
+	if (lst == NULL || new == NULL)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
