@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:35:36 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:39:24 by jbyeon           ###   ########.fr       */
+/*   Created: 2020/12/26 00:27:50 by jbyeon            #+#    #+#             */
+/*   Updated: 2020/12/26 00:40:01 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	char	*ptr;
+
+	ptr = (char *)s;
+	while (*s != '\0')
+		s++;
+	while (s != ptr && *s != (char)c)
+		s--;
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }

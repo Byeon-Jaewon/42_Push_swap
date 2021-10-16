@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:35:36 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:39:24 by jbyeon           ###   ########.fr       */
+/*   Created: 2020/12/24 18:26:50 by jbyeon            #+#    #+#             */
+/*   Updated: 2020/12/25 16:34:22 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	unsigned char	*ptr;
+
+	ptr = (unsigned char*)s;
+	while (n > 0)
+	{
+		*ptr = (unsigned char)c;
+		ptr++;
+		n--;
+	}
+	return (s);
 }

@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:35:36 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:39:24 by jbyeon           ###   ########.fr       */
+/*   Created: 2020/12/27 16:33:24 by jbyeon            #+#    #+#             */
+/*   Updated: 2020/12/28 21:44:01 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	char	*p;
+	size_t	start;
+	size_t	end;
+
+	start = 0;
+	while (s1[start] != '\0' && ft_strchr(set, s1[start]) != 0)
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end]) != 0)
+		end--;
+	end++;
+	if (!(p = (char *)malloc(sizeof(char) * (end - start + 1))))
+		return (NULL);
+	ft_strlcpy(p, s1 + start, end - start + 1);
+	return (p);
 }

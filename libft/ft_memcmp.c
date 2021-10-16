@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:35:36 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:39:24 by jbyeon           ###   ########.fr       */
+/*   Created: 2020/12/24 20:25:03 by jbyeon            #+#    #+#             */
+/*   Updated: 2020/12/25 23:46:50 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+	size_t			i;
+
+	if (n == 0)
+		return (0);
+	ptr1 = (unsigned char*)s1;
+	ptr2 = (unsigned char*)s2;
+	i = 0;
+	while (ptr1[i] == ptr2[i] && i + 1 < n)
+		i++;
+	return ((int)(ptr1[i] - ptr2[i]));
 }

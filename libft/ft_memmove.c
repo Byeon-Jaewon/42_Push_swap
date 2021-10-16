@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:43:16 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/01/03 16:15:27 by jbyeon           ###   ########.fr       */
+/*   Created: 2020/12/24 18:38:57 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/01/05 00:09:40 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (lst == NULL)
+	unsigned char	*dest_ptr;
+	unsigned char	*src_ptr;
+	size_t			i;
+
+	dest_ptr = (unsigned char *)dest;
+	src_ptr = (unsigned char *)src;
+	if (dest == NULL && src == NULL)
 		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	i = 1;
+	if (src_ptr < dest_ptr)
+	{
+		while (i <= n)
+		{
+			dest_ptr[n - i] = src_ptr[n - i];
+			i++;
+		}
+	}
+	else
+	{
+		while (n-- > 0)
+		{
+			*(dest_ptr++) = *(src_ptr++);
+		}
+	}
+	return (dest);
 }
