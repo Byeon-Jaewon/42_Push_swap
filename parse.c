@@ -26,9 +26,9 @@ int check_input_int(char **str)
         while (str[i][j])
         {
             if (ft_isdigit(str[i][j]) != 1 && str[i][j] != '-' && str[i][j] != '+')
-                return throw_error();
+                return (1);
             if ((str[i][j] == '-' || str[i][j] =='+') && j == size - 1)
-                return throw_error();
+                return (1);
             j++;
         }
         i++;
@@ -41,7 +41,7 @@ int duplicates(t_list *stack, int num)
     while (stack)
     {
         if (stack->content == num)
-            return throw_error();
+            return (1);
         stack = stack->next;
     }
     return (0);
@@ -63,7 +63,7 @@ int fill_stack(t_list **astack, char **validated_data)
     {
         num = ft_atoi(validated_data[i]);
         if (duplicates(*astack, num) == 1)
-            return throw_error();
+            return (1);
         tmp = ft_lstnew(num);
         ft_lstadd_front(astack, tmp);
         i--;
@@ -81,11 +81,11 @@ int validate(int argc, char **argv, t_list **astack)
     {
         validated_data = ft_split(argv[i], ' ');
         if (check_input_int(validated_data) == 1)
-            return throw_error();
+            return (1);
         if(!validated_data)
-            return throw_error();
+            return (1);
         if (fill_stack(astack, validated_data) == 1)
-            return throw_error();
+            return (1);
         arr_free(validated_data);
         i--;
     }
