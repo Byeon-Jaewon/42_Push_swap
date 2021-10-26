@@ -16,4 +16,30 @@
 # include "libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+
+#include <stdio.h>
+
+int fill_stack(t_list **astack, char **validated_data);
+int validate(int argc, char **argv, t_list **astack);
+
+int throw_error(void);
+
+void    ft_swap(t_list **stack);
+// void    ft_push(t_list **from_stack, t_list **to_stack);
+// void    ft_rotate(t_list **stack);
+// void    ft_reverse_rotate(t_list **stack);
+
+void    sa(t_list **astack);
+void    sb(t_list **bstack);
+void    pa(t_list **astack, t_list **bstack);
+void    pb(t_list **astack, t_list **bstack);
+void    ra(t_list **astack);
+void    rb(t_list **bstack);
+void    rra(t_list **astack);
+void    rrb(t_list **bstack);
+
+
+void print_stack(t_list **stack);
+void    arr_free(char **str);
+
 #endif

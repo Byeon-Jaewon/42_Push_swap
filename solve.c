@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:31:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:35:20 by jbyeon           ###   ########.fr       */
+/*   Created: 2021/10/23 15:08:06 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/10/23 15:09:18 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.c"
 
-t_list		*ft_lstnew(int content)
+void    solve(t_list **astack, t_list **bstack)
 {
-	t_list	*new;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
-}
+} 

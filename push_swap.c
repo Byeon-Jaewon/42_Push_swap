@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:31:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:35:20 by jbyeon           ###   ########.fr       */
+/*   Created: 2021/10/16 16:39:43 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/10/23 14:38:48 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+#include <stdio.h>
 
-t_list		*ft_lstnew(int content)
+int main(int argc, char **argv)
 {
-	t_list	*new;
+    t_list  *astack;
+    // t_list  *bstack;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+    astack = NULL;
+    // bstack = NULL;
+    printf("start!\n");
+    if (argc > 1 && (validate(argc, argv, &astack) != 0))
+        return throw_error();
+    print_stack(&astack);
+    
+    return (0);
 }

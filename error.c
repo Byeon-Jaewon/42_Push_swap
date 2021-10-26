@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/31 15:31:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2020/12/31 15:35:20 by jbyeon           ###   ########.fr       */
+/*   Created: 2021/10/23 14:53:42 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/10/23 14:55:03 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list		*ft_lstnew(int content)
+int throw_error(void)
 {
-	t_list	*new;
-
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+    ft_putstr_fd("Error\n", 2);
+    return (1);
 }
