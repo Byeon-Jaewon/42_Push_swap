@@ -25,9 +25,9 @@ int validate(int argc, char **argv, t_list **astack);
 int throw_error(void);
 
 void    ft_swap(t_list **stack);
-// void    ft_push(t_list **from_stack, t_list **to_stack);
-// void    ft_rotate(t_list **stack);
-// void    ft_reverse_rotate(t_list **stack);
+void    ft_push(t_list **from_stack, t_list **to_stack);
+void    ft_rotate(t_list **stack);
+void    ft_reverse_rotate(t_list **stack);
 
 void    sa(t_list **astack);
 void    sb(t_list **bstack);
@@ -40,6 +40,8 @@ void    rrb(t_list **bstack);
 
 
 void print_stack(t_list **stack);
+void rprint_stack(t_list **stack);
+
 void    arr_free(char **str);
 
 #endif

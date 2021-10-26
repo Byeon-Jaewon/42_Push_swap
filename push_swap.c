@@ -16,14 +16,20 @@
 int main(int argc, char **argv)
 {
     t_list  *astack;
-    // t_list  *bstack;
+    t_list  *bstack;
 
     astack = NULL;
-    // bstack = NULL;
+    bstack = NULL;
     printf("start!\n");
     if (argc > 1 && (validate(argc, argv, &astack) != 0))
         return throw_error();
+    
+    ft_push(&astack, &bstack);
+    ft_push(&astack, &bstack);
+    ft_reverse_rotate(&astack);
+    
     print_stack(&astack);
+    print_stack(&bstack);
     
     return (0);
 }

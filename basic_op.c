@@ -13,37 +13,64 @@ void    ft_swap(t_list **stack)
     }
 }
 
-// void    ft_push(t_list **target_stack, t_list **to_stack)
-// {
-//     t_list  *tmp;
+void    ft_push(t_list **target_stack, t_list **to_stack)
+{
+    t_list  *tmp;
 
-//     tmp = *target_stack;
-//     if (*target_stack)
-//     {
-        
-//     }
-//     free(tmp);
-// }
+    tmp = (*target_stack);
+    if (*target_stack)
+    {
+        (*target_stack) = (*target_stack)->next;
+        if (!(*to_stack))
+        {
+            tmp->next = NULL;
+            tmp->prev = NULL;
+            (*to_stack) = tmp;
+        }
+        else if (!((*to_stack)->prev))
+        {
+            tmp->next = (*to_stack);
+            tmp->prev = NULL;
+            (*to_stack)->prev = tmp;
+            (*to_stack) = (*to_stack)->prev;
+        }
+        else
+        {
+            (*to_stack)->prev->next = tmp;
+            tmp->next = (*to_stack);
+            (*to_stack)->prev = tmp;
+            (*to_stack) = (*to_stack)->prev;
+        }
+    }
+}
 
-// void    ft_rotate(t_list **stack)
-// {
-//     t_list  *tmp;
-//     t_list  *last;
+void    ft_rotate(t_list **stack)
+{
+    t_list  *tmp;
+    t_list  *last;
     
-//     if (*stack)
-//     {
-        
-//     }
-// }
+    if (*stack)
+    {
+        tmp = (*stack);
+        last = ft_lstlast(*stack);
+        (*stack) = (*stack)->next;
+        tmp->next = NULL;
+        tmp->prev = last;
+        last->next = tmp;
+    }
+}
 
-// void    ft_reverse_rotate(t_list **stack)
-// {
-//     t_list  *tmp;
-//     t_list  *last;
+void    ft_reverse_rotate(t_list **stack)
+{
+    t_list  *last;
 
-//     printf("check0\n");
-//     if (*stack)
-//     {
-       
-//     }
-// }
+    if (*stack)
+    {
+       last = ft_lstlast(*stack);
+       last->prev->next = NULL;
+       last->prev = NULL;
+       last->next = (*stack);
+       (*stack)->prev = last;
+       (*stack) = (*stack)->prev;
+    }
+}

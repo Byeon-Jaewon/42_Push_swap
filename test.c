@@ -19,6 +19,24 @@ void print_stack(t_list **stack)
     (*stack) = tmp;
     printf("\n");
 }
+void rprint_stack(t_list **stack)
+{
+    t_list *tmp;
+
+    if (!(*stack))
+    {
+        return ;
+    }
+    printf("stack print start ! \n");
+    tmp = (*stack);
+    while ((*stack))
+    {
+        printf("%d->", (*stack)->content);
+        (*stack) = (*stack)->prev;
+    }
+    (*stack) = tmp;
+    printf("\n");
+}
 
 void    arr_free(char **str)
 {

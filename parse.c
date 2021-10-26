@@ -65,7 +65,7 @@ int fill_stack(t_list **astack, char **validated_data)
         if (duplicates(*astack, num) == 1)
             return throw_error();
         tmp = ft_lstnew(num);
-        ft_lstadd_back(astack, tmp);
+        ft_lstadd_front(astack, tmp);
         i--;
     }
     return (0);
