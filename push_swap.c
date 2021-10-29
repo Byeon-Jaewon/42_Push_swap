@@ -20,16 +20,18 @@ int main(int argc, char **argv)
 
     astack = NULL;
     bstack = NULL;
-    printf("start!\n");
     if (argc > 1 && (validate(argc, argv, &astack) != 0))
+    {
+        stack_free(&astack);
         return throw_error();
-    
-    ft_push(&astack, &bstack);
-    ft_push(&astack, &bstack);
-    ft_reverse_rotate(&astack);
-    
+    }
+    print_stack(&astack);
+    solved(&astack, &bstack);
     print_stack(&astack);
     print_stack(&bstack);
+    stack_free(&astack);
+    // stack_free(&bstack);
+
     
     return (0);
 }

@@ -20,7 +20,6 @@ void    ra(t_list **astack)
 
 void    rra(t_list **astack)
 {
-    ft_swap(astack);
-    ft_swap(astack);
+    ft_reverse_rotate(astack);
     ft_putstr_fd("rra\n", 1);
 }

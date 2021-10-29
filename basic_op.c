@@ -27,20 +27,20 @@ void    ft_push(t_list **target_stack, t_list **to_stack)
             tmp->prev = NULL;
             (*to_stack) = tmp;
         }
-        else if (!((*to_stack)->prev))
+        else 
         {
             tmp->next = (*to_stack);
             tmp->prev = NULL;
             (*to_stack)->prev = tmp;
             (*to_stack) = (*to_stack)->prev;
         }
-        else
-        {
-            (*to_stack)->prev->next = tmp;
-            tmp->next = (*to_stack);
-            (*to_stack)->prev = tmp;
-            (*to_stack) = (*to_stack)->prev;
-        }
+        // else
+        // {
+        //     (*to_stack)->prev->next = tmp;
+        //     tmp->next = (*to_stack);
+        //     (*to_stack)->prev = tmp;
+        //     (*to_stack) = (*to_stack)->prev;
+        // }
     }
 }
 

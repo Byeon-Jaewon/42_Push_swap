@@ -42,6 +42,17 @@ void    rrb(t_list **bstack);
 void print_stack(t_list **stack);
 void rprint_stack(t_list **stack);
 
+void    solved(t_list **astack, t_list **bstack);
+void    five_sort(t_list **astack, t_list **bstack);
+void    five_b_to_a(t_list **astack, t_list **bstack);
+void    three_sort(t_list **astack);
+void    two_sort(t_list **astack);
+int     check_sort(t_list *astack);
+
+int largest_num(t_list *stack);
+int smallest_num(t_list *stack);
+
 void    arr_free(char **str);
+void    stack_free(t_list **stack);
 
 #endif

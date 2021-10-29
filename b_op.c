@@ -20,7 +20,6 @@ void    rb(t_list **bstack)
 
 void    rrb(t_list **bstack)
 {
-    ft_swap(bstack);
-    ft_swap(bstack);
+    ft_reverse_rotate(bstack);
     ft_putstr_fd("rrb\n", 1);
 }

@@ -5,10 +5,10 @@ void	printstack(t_list *stack)
 {
 	while (stack->next != NULL)
 	{
-		printf("%d", stack->num);
+		printf("%d", stack->content);
 		stack = stack->next;
 	}
-	printf("%d", stack->num);
+	printf("%d", stack->content);
 }
 int     main(void)
 {

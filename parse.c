@@ -49,7 +49,7 @@ int duplicates(t_list *stack, int num)
 
 int fill_stack(t_list **astack, char **validated_data)
 {
-    int     num;
+    long long     num;
     int     j;
     int     i;
     t_list  *tmp;
@@ -62,6 +62,10 @@ int fill_stack(t_list **astack, char **validated_data)
     while (i != -1)
     {
         num = ft_atoi(validated_data[i]);
+        if (num < -2147483648 || num > 2147483647)
+        {
+            return (1);
+        }
         if (duplicates(*astack, num) == 1)
             return (1);
         tmp = ft_lstnew(num);
@@ -81,11 +85,17 @@ int validate(int argc, char **argv, t_list **astack)
     {
         validated_data = ft_split(argv[i], ' ');
         if (check_input_int(validated_data) == 1)
+        {
+            arr_free(validated_data);
             return (1);
+        }
         if(!validated_data)
             return (1);
         if (fill_stack(astack, validated_data) == 1)
+        {
+            arr_free(validated_data);
             return (1);
+        }
         arr_free(validated_data);
         i--;
     }

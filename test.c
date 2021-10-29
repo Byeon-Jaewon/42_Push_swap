@@ -47,4 +47,21 @@ void    arr_free(char **str)
     {
         free(str[i++]);
     }
+    free(str);
+}
+
+void    stack_free(t_list **stack)
+{
+    t_list  *tmp;
+    t_list  *del;
+
+    printf("------------------\n");
+    tmp = *stack;
+    while (tmp)
+	{
+        del = tmp;
+		tmp = tmp->next;
+        free(del);
+	}
+    *stack = NULL;
 }

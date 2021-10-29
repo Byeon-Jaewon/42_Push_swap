@@ -10,9 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
-void    solve(t_list **astack, t_list **bstack)
+void    solved(t_list **astack, t_list **bstack)
 {
+    int     len;
 
-} 
+    if (check_sort(*astack) != 0)
+    {
+        len = ft_lstsize(*astack);
+        if (len == 2)
+            two_sort(astack);
+        else if (len == 3)
+            three_sort(astack);
+        else if (len < 6)
+            five_sort(astack, bstack);
+    }
+    return ;
+}
