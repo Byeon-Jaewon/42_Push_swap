@@ -34,8 +34,17 @@ int get_pivot(t_list *stack, int size)
 {
     int *cp;
     int result;
+    int idx;
 
-    cp = copy_stack(stack, size);
+    // cp = copy_stack(stack, size);
+    if (!(cp = (int *)malloc(sizeof(int) * (size - 1))))
+        return (NULL);
+    idx = 0;
+    while (idx < size)
+    {
+        cp[idx] = get_content(stack, idx);
+        idx ++;
+    }
     bubble_sort(cp, size);
     result = cp[size/2];
     free(cp);
