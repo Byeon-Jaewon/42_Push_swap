@@ -20,11 +20,11 @@ int main(int argc, char **argv)
 
     astack = NULL;
     bstack = NULL;
-    if (argc > 1 && (validate(argc, argv, &astack) != 0))
-    {
-        stack_free(&astack);
-        return throw_error();
-    }
+    // if (argc > 1 && (validate(argc, argv, &astack) != 0))
+    // {
+    //     stack_free(&astack);
+    //     return throw_error();
+    // }
     solved(&astack, &bstack);
     stack_free(&astack);
     stack_free(&bstack);

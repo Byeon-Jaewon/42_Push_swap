@@ -38,7 +38,7 @@ int get_pivot(t_list *stack, int size)
     cp = copy_stack(stack, size);
     bubble_sort(cp, size);
     result = cp[size/2];
-    // free(cp);
+    free(cp);
     return (result);
 }
 
