@@ -33,34 +33,29 @@ int smallest_num(t_list *stack)
 int get_pivot(t_list *stack, int size)
 {
     int *cp;
-    int idx;
-    // int i;
     int result;
-    // int j;
-    // int tmp;
 
-    // i = size - 1;
-    // j = 0;
+    cp = copy_stack(stack, size);
+    bubble_sort(cp, size);
+    result = cp[size/2];
+    free(cp);
+    return (result);
+}
+
+int *copy_stack(t_list *stack, int size)
+{
+    int *cp;
+    int idx;
+
     if (!(cp = (int *)malloc(sizeof(int) * (size - 1))))
-        return (0);
+        return (NULL);
     idx = 0;
     while (idx < size)
     {
         cp[idx] = get_content(stack, idx);
         idx ++;
     }
-    // i = 0;
-    // while (cp[i] != '\0')
-    //     printf("%d ", cp[i++]);
-    // printf("\n");
-    bubble_sort(cp, size);
-    // i = 0;
-    // while (cp[i] != '\0')
-    //     printf("%d ", cp[i++]);
-    // printf("\n");
-    result = cp[size/2];
-    free(cp);
-    return (result);
+    return (cp);
 }
 
 int get_content(t_list *stack, int index)

@@ -21,7 +21,8 @@ void    a_to_b_sort(t_list **astack, t_list **bstack, int cnt)
     idx = cnt;
     // print_stack(astack);
     // print_stack(bstack);
-    pivot = get_pivot(*astack, cnt);
+    // pivot = get_pivot(*astack, cnt);
+    pivot = (*astack)->content;
     // printf("pivot : %d\n", pivot);
     while (idx > 0)
     {
@@ -73,7 +74,7 @@ void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt)
     idx = cnt;
     // print_stack(astack);
     // print_stack(bstack);
-    pivot = get_pivot(*bstack, cnt);
+    pivot = (*bstack)->content;
     // printf("pivot : %d\n", pivot);
     while (idx > 0)
     {

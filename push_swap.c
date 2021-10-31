@@ -26,8 +26,6 @@ int main(int argc, char **argv)
         return throw_error();
     }
     solved(&astack, &bstack);
-    // print_stack(&astack);
-    // print_stack(&bstack);
     stack_free(&astack);
     stack_free(&bstack);
 

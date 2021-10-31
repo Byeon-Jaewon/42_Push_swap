@@ -52,6 +52,7 @@ void    three_sortb(t_list **bstack);
 void    two_sorta(t_list **astack);
 void    two_sortb(t_list **bstack);
 int     check_sort(t_list *astack);
+int *copy_stack(t_list *stack, int size);
 int     get_pivot(t_list *stack, int size);
 void bubble_sort(int *arr, int size);
 int get_content(t_list *stack, int index);
