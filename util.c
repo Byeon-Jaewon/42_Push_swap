@@ -42,7 +42,8 @@ static int get_pivot(t_list *stack, int size)
     return (result);
 }
 
-static int *copy_stack(t_list *stack, int size)
+
+int *copy_stack(t_list *stack, int size)
 {
     int *cp;
     int idx;
@@ -78,7 +79,7 @@ int get_content(t_list *stack, int index)
     return (result);
 }
 
-static void bubble_sort(int *arr, int size)
+void bubble_sort(int *arr, int size)
 {
     int i;
     int j;
