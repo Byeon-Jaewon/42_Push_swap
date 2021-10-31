@@ -20,7 +20,7 @@ void    two_sorta(t_list **astack)
 
 void    two_sortb(t_list **bstack)
 {
-    if ((*bstack)->content > (*bstack)->next->content)
+    if ((*bstack)->content < (*bstack)->next->content)
         sb(bstack);
 }
 

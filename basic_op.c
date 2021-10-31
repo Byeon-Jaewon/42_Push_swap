@@ -34,13 +34,6 @@ void    ft_push(t_list **target_stack, t_list **to_stack)
             (*to_stack)->prev = tmp;
             (*to_stack) = (*to_stack)->prev;
         }
-        // else
-        // {
-        //     (*to_stack)->prev->next = tmp;
-        //     tmp->next = (*to_stack);
-        //     (*to_stack)->prev = tmp;
-        //     (*to_stack) = (*to_stack)->prev;
-        // }
     }
 }
 
@@ -49,7 +42,7 @@ void    ft_rotate(t_list **stack)
     t_list  *tmp;
     t_list  *last;
     
-    if (*stack)
+    if ((*stack)->next)
     {
         tmp = (*stack);
         last = ft_lstlast(*stack);
@@ -64,13 +57,13 @@ void    ft_reverse_rotate(t_list **stack)
 {
     t_list  *last;
 
-    if (*stack)
+    if ((*stack)->next)
     {
        last = ft_lstlast(*stack);
        last->prev->next = NULL;
        last->prev = NULL;
        last->next = (*stack);
        (*stack)->prev = last;
-       (*stack) = (*stack)->prev;
+       (*stack) = last;
     }
 }
