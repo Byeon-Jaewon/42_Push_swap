@@ -36,9 +36,8 @@ int get_pivot(t_list *stack, int size)
     int result;
     int idx;
 
-    // cp = copy_stack(stack, size);
-    if (!(cp = (int *)malloc(sizeof(int) * (size - 1))))
-        return (NULL);
+    if (!(cp = (int *)malloc(sizeof(int) * (size))))
+        return (0);
     idx = 0;
     while (idx < size)
     {
