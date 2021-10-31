@@ -30,7 +30,7 @@ int smallest_num(t_list *stack)
     return (small);
 }
 
-static int get_pivot(t_list *stack, int size)
+int get_pivot(t_list *stack, int size)
 {
     int *cp;
     int result;
