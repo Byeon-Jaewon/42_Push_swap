@@ -30,7 +30,7 @@ int smallest_num(t_list *stack)
     return (small);
 }
 
-int get_pivot(t_list *stack, int size)
+static int get_pivot(t_list *stack, int size)
 {
     int *cp;
     int result;
@@ -42,7 +42,7 @@ int get_pivot(t_list *stack, int size)
     return (result);
 }
 
-int *copy_stack(t_list *stack, int size)
+static int *copy_stack(t_list *stack, int size)
 {
     int *cp;
     int idx;
@@ -78,7 +78,7 @@ int get_content(t_list *stack, int index)
     return (result);
 }
 
-void bubble_sort(int *arr, int size)
+static void bubble_sort(int *arr, int size)
 {
     int i;
     int j;

@@ -82,7 +82,6 @@ void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt)
         }
         idx--;
     }
-    // printf("rb: %d, pa : %d\n", irb, ipa);
     while (i < irb)
     {
         rrb(bstack);
