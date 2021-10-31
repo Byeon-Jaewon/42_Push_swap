@@ -25,12 +25,12 @@ int main(int argc, char **argv)
         stack_free(&astack);
         return throw_error();
     }
-    print_stack(&astack);
+    // print_stack(&astack);
     solved(&astack, &bstack);
-    print_stack(&astack);
-    print_stack(&bstack);
+    // print_stack(&astack);
+    // print_stack(&bstack);
     stack_free(&astack);
-    // stack_free(&bstack);
+    stack_free(&bstack);
 
     
     return (0);

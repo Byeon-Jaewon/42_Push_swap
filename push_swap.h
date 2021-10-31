@@ -43,11 +43,20 @@ void print_stack(t_list **stack);
 void rprint_stack(t_list **stack);
 
 void    solved(t_list **astack, t_list **bstack);
-void    five_sort(t_list **astack, t_list **bstack);
+void    five_sortab(t_list **astack, t_list **bstack, int size);
+void    five_sortba(t_list **astack, t_list **bstack, int size);
 void    five_b_to_a(t_list **astack, t_list **bstack);
-void    three_sort(t_list **astack);
-void    two_sort(t_list **astack);
+void    five_a_to_b(t_list **astack, t_list **bstack);
+void    three_sorta(t_list **astack);
+void    three_sortb(t_list **bstack);
+void    two_sorta(t_list **astack);
+void    two_sortb(t_list **bstack);
 int     check_sort(t_list *astack);
+int     get_pivot(t_list *stack, int size);
+int get_content(t_list *stack, int index);
+
+void    a_to_b_sort(t_list **astack, t_list **bstack, int cnt);
+void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt);
 
 int largest_num(t_list *stack);
 int smallest_num(t_list *stack);

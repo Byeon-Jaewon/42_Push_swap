@@ -6,7 +6,7 @@ RM			= rm -f
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 SRCS		= a_op.c ab_op.c b_op.c basic_op.c error.c parse.c test.c \
-			sort.c solve.c util.c push_swap.c\
+			small_sort.c large_sort.c solve.c util.c push_swap.c\
 				
 OBJS		= $(SRCS:.c=.o)
 

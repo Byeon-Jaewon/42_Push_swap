@@ -20,11 +20,13 @@ void    solved(t_list **astack, t_list **bstack)
     {
         len = ft_lstsize(*astack);
         if (len == 2)
-            two_sort(astack);
+            two_sorta(astack);
         else if (len == 3)
-            three_sort(astack);
+            three_sorta(astack);
         else if (len < 6)
-            five_sort(astack, bstack);
+            five_sortab(astack, bstack, len);
+        else
+            a_to_b_sort(astack, bstack, len);
     }
     return ;
 }
