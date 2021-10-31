@@ -67,7 +67,7 @@ void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt)
         return ;
     }
     idx = cnt;
-    pivot = get_pivot(bstack, cnt);
+    pivot = get_pivot(*bstack, cnt);
     while (idx > 0)
     {
         if ((*bstack)->content < pivot)
