@@ -1,26 +1,25 @@
 #include "push_swap.h"
 
-void    a_to_b_sort(t_list **astack, t_list **bstack, int cnt)
+void    a_reverse_rotate(t_list **astack, int ira)
 {
-    int pivot;
-    int ira;
-    int ipb;
     int i;
-    int idx;
 
     i = 0;
+    while (i < ira)
+    {
+        rra(astack);
+        i++;
+    }
+}
+
+void    a_b_oper(t_list **astack, t_list **bstack, int cnt, int pivot)
+{
+    int ira;
+    int ipb;
+
     ira = 0;
     ipb = 0;
-    if (cnt <= 1)
-        return ;
-    else if (cnt == 2)
-    {
-        two_sorta(astack);
-        return ;
-    }
-    idx = cnt;
-    pivot = get_pivot(*astack, cnt);
-    while (idx > 0)
+    while (cnt > 0)
     {
         if ((*astack)->content > pivot)
         {
@@ -32,28 +31,69 @@ void    a_to_b_sort(t_list **astack, t_list **bstack, int cnt)
             pb(astack, bstack);
             ipb++;
         }
-        idx--;
+        cnt--;
     }
-    while (i < ira)
-    {
-        rra(astack);
-        i++;
-    }
+    a_reverse_rotate(astack, ira);
     a_to_b_sort(astack, bstack, ira);
     b_to_a_sort(astack, bstack, ipb);
+}
+
+void    a_to_b_sort(t_list **astack, t_list **bstack, int cnt)
+{
+    int pivot;
+
+    if (cnt <= 1)
+        return ;
+    else if (cnt == 2)
+    {
+        two_sorta(astack);
+        return ;
+    }
+    pivot = get_pivot(*astack, cnt);
+    a_b_oper(astack, bstack, cnt, pivot);
+}
+
+void    b_reverse_rotate(t_list **bstack, int irb)
+{
+    int i;
+
+    i = 0;
+    while (i < irb)
+    {
+        rrb(bstack);
+        i++;
+    }
+}
+
+void b_a_oper(t_list **astack, t_list **bstack, int cnt, int pivot)
+{
+    int irb;
+    int ipa;
+
+    irb = 0;
+    ipa = 0;
+    while (cnt > 0)
+    {
+        if ((*bstack)->content < pivot)
+        {
+            rb(bstack);
+            irb++;
+        }
+        else
+        {
+            pa(astack, bstack);
+            ipa++;
+        }
+        cnt--;
+    }
+    b_reverse_rotate(bstack, irb);
+    a_to_b_sort(astack, bstack, ipa);
+    b_to_a_sort(astack, bstack, irb);
 }
 
 void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt)
 {
     int pivot;
-    int irb;
-    int ipa;
-    int i;
-    int idx;
-
-    i = 0;
-    irb = 0;
-    ipa = 0;
     if (cnt <= 1)
     {
         pa(astack, bstack);
@@ -66,27 +106,6 @@ void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt)
         pa(astack, bstack);
         return ;
     }
-    idx = cnt;
     pivot = get_pivot(*bstack, cnt);
-    while (idx > 0)
-    {
-        if ((*bstack)->content < pivot)
-        {
-            rb(bstack);
-            irb++;
-        }
-        else
-        {
-            pa(astack, bstack);
-            ipa++;
-        }
-        idx--;
-    }
-    while (i < irb)
-    {
-        rrb(bstack);
-        i++;
-    }
-    a_to_b_sort(astack, bstack, ipa);
-    b_to_a_sort(astack, bstack, irb);
+    b_a_oper(astack, bstack, cnt, pivot);
 }

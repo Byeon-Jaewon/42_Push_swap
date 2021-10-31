@@ -17,8 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#include <stdio.h>
-
 int fill_stack(t_list **astack, char **validated_data);
 int validate(int argc, char **argv, t_list **astack);
 
@@ -38,10 +36,6 @@ void    rb(t_list **bstack);
 void    rra(t_list **astack);
 void    rrb(t_list **bstack);
 
-
-void print_stack(t_list **stack);
-void rprint_stack(t_list **stack);
-
 void    solved(t_list **astack, t_list **bstack);
 void    five_sortab(t_list **astack, t_list **bstack, int size);
 void    five_sortba(t_list **astack, t_list **bstack, int size);
@@ -52,16 +46,16 @@ void    three_sortb(t_list **bstack);
 void    two_sorta(t_list **astack);
 void    two_sortb(t_list **bstack);
 int     check_sort(t_list *astack);
-int *copy_stack(t_list *stack, int size);
+int     *copy_stack(t_list *stack, int size);
 int     get_pivot(t_list *stack, int size);
-void bubble_sort(int *arr, int size);
-int get_content(t_list *stack, int index);
+void    bubble_sort(int *arr, int size);
+int     get_content(t_list *stack, int index);
 
 void    a_to_b_sort(t_list **astack, t_list **bstack, int cnt);
 void    b_to_a_sort(t_list **astack, t_list **bstack, int cnt);
 
-int largest_num(t_list *stack);
-int smallest_num(t_list *stack);
+int     largest_num(t_list *stack);
+int     smallest_num(t_list *stack);
 
 void    arr_free(char **str);
 void    stack_free(t_list **stack);
